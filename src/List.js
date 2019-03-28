@@ -2,19 +2,31 @@ import React, { Component ,Fragment} from 'react';
 class List extends Component {
     constructor(props){
         super(props);
-        console.log(this.props)
+        this.state={
+          list:['good','next','go']
+      }
         this.del=this.del.bind(this);
     }
     del(index){
-        //更新数据
-        this.props.onDel(index);
+      let list=[...this.state.list];
+      list.splice(index,1)
+        this.setState({
+            list
+        })
+  }
+    componentWillReceiveProps(newProps){
+      if(this.state.list!==newProps.items){
+       let list=[...this.state.list,newProps.items];
+       this.setState({
+         list
+       })
+      }
     }
   render() {
-    
     return (
       <Fragment>
         <ul>{
-         this.props.items.map((value,index)=>{
+         this.state.list.map((value,index)=>{
            return <li key={index} onClick={()=>this.del(index)}>{value}</li>
         })
         }</ul>

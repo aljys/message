@@ -6,22 +6,15 @@ class TodoList extends Component {
   constructor(props){
       super(props);
       this.state={
-          list:['good','next','go']
+          items:[]
       }
       this.handleReceive=this.handleReceive.bind(this);
-      this.handDel=this.handDel.bind(this);
   }
-  handDel(index){
-      let list=[...this.state.list];
-      list.splice(index,1)
-        this.setState({
-            list
-        })
-  }
+
   handleReceive(item){
-    let list=[...this.state.list,item]
+    let items=[...this.state.items,item]
     this.setState({
-        list
+        items
     })
   }
   render() {
@@ -29,8 +22,7 @@ class TodoList extends Component {
       <Fragment>
          <Input onReceiveItem={this.handleReceive}/>
          <List 
-         onDel={this.handDel}
-         items={this.state.list}
+         items={this.state.items}
          />
       </Fragment>
     );
