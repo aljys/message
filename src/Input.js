@@ -1,9 +1,12 @@
 import React, { Component ,Fragment} from 'react';
+import PropTypes from 'prop-types'//脚手架安装的
+import './App.css'
 class Input extends Component {
     constructor(props){
         super(props);
         this.state={
-            item:''
+            item:'',
+            btnText:'提交'
         }
         this.handleInputChange=this.handleInputChange.bind(this);
         this.handleButtonClick=this.handleButtonClick.bind(this);
@@ -31,11 +34,31 @@ class Input extends Component {
          this.handleButtonClick();
         }
     }
+    static propTypes={
+        onReceiveItem:PropTypes.oneOfType([
+            PropTypes.func
+        ])
+    }
   render() {
+      console.log(PropTypes)
     return (
       <Fragment>
-        <input type='text' value={this.state.item}  onKeyUp={this.handleKeyUp}  onChange={this.handleInputChange}/>
-        <button onClick={this.handleButtonClick}>提交</button>
+        <label htmlFor="ipt">请输入关键字:</label>
+        <input
+        type='text' 
+        id="ipt"
+        value={this.state.item}
+        onKeyUp={this.handleKeyUp} 
+        onChange={this.handleInputChange}
+        />
+        <button 
+         className='btn'
+         onClick={this.handleButtonClick}
+        //  dangerouslySetInnerHTML={{__html:this.state.btnText}}
+         
+         >
+         {this.state.btnText}
+         </button>
       </Fragment>
     );
   }

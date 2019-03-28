@@ -20,7 +20,9 @@ class TodoList extends Component {
   render() {
     return (
       <Fragment>
-         <Input onReceiveItem={this.handleReceive}/>
+         <Input 
+         onReceiveItem={this.handleReceive}
+         />
          <List 
          items={this.state.items}
          />
