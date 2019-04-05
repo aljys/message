@@ -50,17 +50,17 @@ const Self = ({match})=>{
     )
 }
 
-const Son1 = ({match})=>{
-    return (
-        <h1>`${match.params}`</h1>
-    )
-}
-const Son2 = ({match})=>{
-    return (
-        <h1>子2</h1>
+// const Son1 = ({match})=>{
+//     return (
+//         <h1>`${match.params}`</h1>
+//     )
+// }
+// const Son2 = ({match})=>{
+//     return (
+//         <h1>子2</h1>
         
-    )
-}
+//     )
+// }
 const Son3 = ({match})=>{
     return (
         <h1>子3</h1>
